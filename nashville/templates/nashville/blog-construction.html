@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1"/>
+    <meta name="author" content="SINDEVO THEMES"/>
+    <meta name="description" content="wedding html template"/>
+    <title>#TheHuntIsOver</title>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'style.css' %}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/intro.css' %}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/animsition.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/swipebox.css' %}"/>
+    <link href='http://fonts.googleapis.com/css?family=Clicker+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700,900' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Rouge+Script" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.theme.css' %}">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.themecarousel.css' %}">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.transitions.css' %}">
+</head>
+<body>
+<div id="pagecontainer" class="animsition">
+
+    <nav id="main_menu" class="menugray">
+        <ul>
+            <li><a href="/" class="fade-page"><span data-hover="HOME">HOME</span></a></li>
+            <li><a href="/wedding" class="fade-page"><span data-hover="THE WEDDING">THE WEDDING</span></a></li>
+            <li><a href="/nashville" class="selected fade-page"><span
+                    data-hover="NASHVILLE GUIDE">NASHVILLE GUIDE</span></a>
+            </li>
+            <li><a href="/rsvp" class="fade-page"><span data-hover="RSVP">RSVP</span></a></li>
+
+        </ul>
+    </nav>
+
+    <div class="section_centered">
+
+        <div class="centered_title">
+            <h2>Page is <span>under</span> Construction</h2>
+            <p class="under_title_descr"><span>A page dedicated to our favorite places in Nashville</span></p>
+        </div>
+
+        <div class="section_centered">
+
+                <div class="footer_centered_title">
+            <h2>I know, I know, we should have had this page done sooner. But you know we are procrastinators. <3</h2>
+                </div>
+        </div>
+
+
+    </div><!-- End of content-->
+
+    <div id="footer">
+        <div class="section_centered">
+
+            <div class="footer_centered_title">
+                <h2>Adam <span>and </span> Morgan</h2>
+            </div>
+
+            <div class="footer_rsvp"><a href="/rsvp" class="fade-page">RSVP NOW</a></div>
+
+
+            <div class="footer_menu">
+                <ul>
+                    <li><a href="/" class="fade-page"><span>Home</span></a></li>
+                    <li><a href="/wedding" class="fade-page"><span>The Wedding</span></a></li>
+                    <li><a href="/nashville" class="fade-page"><span>Nashville Guide</span></a></li>
+                    <li><a href="/Rsvp" class="fade-page"><span>RSVP</span></a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End of Footer -->
+
+</div> <!--End of container-->
+<!-- jQuery -->
+<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/animsition.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/menu.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.validate.min.js' %}"></script>
+<script type="text/javascript">
+$("#main_menu").menumaker({
+format: "multitoggle",
+sticky: true
+});
+
+
+
+
+
+</script>
+</body>
+</html>

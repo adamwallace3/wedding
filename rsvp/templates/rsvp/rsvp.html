@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1"/>
+    <meta name="author" content="SINDEVO THEMES"/>
+    <meta name="description" content="wedding html template"/>
+    <title>#TheHuntIsOver</title>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'style.css' %}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/intro.css' %}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/animsition.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/swipebox.css' %}"/>
+    <link href='http://fonts.googleapis.com/css?family=Clicker+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700,900' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Rouge+Script" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.theme.css' %}">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.themecarousel.css' %}">
+    <link rel="stylesheet" href="{% static 'owl-carousel/owl.transitions.css' %}">
+</head>
+<body>
+<div id="pagecontainer" class="animsition">
+
+    <nav id="main_menu" class="menugray">
+        <ul>
+            <li><a href="/" class="fade-page"><span data-hover="HOME">HOME</span></a></li>
+            <li><a href="/wedding" class="fade-page"><span data-hover="THE WEDDING">THE WEDDING</span></a></li>
+            <li><a href="/nashville" class="fade-page"><span data-hover="NASHVILLE GUIDE">NASHVILLE GUIDE</span></a>
+            </li>
+            <li><a href="/rsvp" class="selected fade-page"><span data-hover="RSVP">RSVP</span></a></li>
+
+        </ul>
+    </nav>
+
+    <div class="section_centered">
+
+        <div class="centered_title">
+            <h2>SAVE <span>your</span> PLACE</h2>
+            <p class="under_title_descr"><span>Répondez s'il vous plaît.</span></p>
+        </div>
+
+        <div class="form_content_rsvp">
+            <h3 class="form_toptitle" id="Note"></h3>
+            <form id="RSVPForm" method="post" action="">
+                {% csrf_token %}
+
+                <h3 class="form_subtitle">GUEST DETAILS &amp; COMMENTS</h3>
+                <div class="form_section">
+                    <div class="form_row_full">
+                        <label>NR OF GUESTS</label>
+                        <div class="select_container">
+                            <select class="form_select" name="guests">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5+">5+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form_row left13">
+                        <label>NAME</label>
+                        <input type="text" class="form_input required" name="name" id="rsvpname"/>
+                    </div>
+                    <div class="form_row left13">
+                        <label>EMAIL</label>
+                        <input type="text" class="form_input required email" name="email" id="rsvpemail"/>
+                    </div>
+                    <div class="form_row left13_last">
+                        <label>PHONE</label>
+                        <input type="text" class="form_input required" name="phone_number" id="rsvpphone"
+                        placeholder="(555) 555-5555"/>
+                    </div>
+                    <div class="form_row_full">
+                        <label>OTHER COMMENTS</label>
+                        <textarea class="form_textarea_full" name="comments" id="rsvpcomments"></textarea>
+                    </div>
+                    <div class="form_row">
+                        <input type="submit" name="submit" class="form_submit_contact" id="submit" value="SEND RSVP"/>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+
+    </div><!-- End of content-->
+
+    <div id="footer">
+        <div class="section_centered">
+
+            <div class="footer_centered_title">
+                <h2>Adam <span>and </span> Morgan</h2>
+            </div>
+
+            <div class="footer_rsvp"><a href="rsvp.html" class="fade-page">RSVP NOW</a></div>
+
+
+            <div class="footer_menu">
+                <ul>
+                    <li><a href="page.html" class="fade-page"><span>Wedding</span></a></li>
+                    <li><a href="page.html" class="fade-page"><span>Location</span></a></li>
+                    <li><a href="rsvp.html" class="fade-page"><span>Gift Registry</span></a></li>
+                    <li><a href="blog.html" class="fade-page"><span>Journal</span></a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End of Footer -->
+
+</div> <!--End of container-->
+<!-- jQuery -->
+<script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/animsition.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/menu.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.validate.min.js' %}"></script>
+<script type="text/javascript">
+$("#main_menu").menumaker({
+format: "multitoggle",
+sticky: true
+});
+
+</script>
+<script type="text/javascript" charset="utf-8">
+var $ = jQuery.noConflict();
+  $(window).load(function() {
+    "use strict";
+	$("#RSVPForm").validate({
+	submitHandler: function(form) {
+	ajaxContact(form);
+	return false;
+	}
+	});
+
+  });
+
+</script>
+<script>
+    $('#rsvpphone')
+
+	.keydown(function (e) {
+		var key = e.which || e.charCode || e.keyCode || 0;
+		$phone = $(this);
+
+    // Don't let them remove the starting '('
+    if ($phone.val().length === 1 && (key === 8 || key === 46)) {
+			$phone.val('(');
+      return false;
+		}
+    // Reset if they highlight and type over first char.
+    else if ($phone.val().charAt(0) !== '(') {
+			$phone.val('('+String.fromCharCode(e.keyCode)+'');
+		}
+
+		// Auto-format- do not expose the mask as the user begins to type
+		if (key !== 8 && key !== 9) {
+			if ($phone.val().length === 4) {
+				$phone.val($phone.val() + ')');
+			}
+			if ($phone.val().length === 5) {
+				$phone.val($phone.val() + ' ');
+			}
+			if ($phone.val().length === 9) {
+				$phone.val($phone.val() + '-');
+			}
+		}
+
+		// Allow numeric (and tab, backspace, delete) keys only
+		return (key == 8 ||
+				key == 9 ||
+				key == 46 ||
+				(key >= 48 && key <= 57) ||
+				(key >= 96 && key <= 105));
+	})
+
+	.bind('focus click', function () {
+		$phone = $(this);
+
+		if ($phone.val().length === 0) {
+			$phone.val('(');
+		}
+		else {
+			var val = $phone.val();
+			$phone.val('').val(val); // Ensure cursor remains at the end
+		}
+	})
+
+	.blur(function () {
+		$phone = $(this);
+
+		if ($phone.val() === '(') {
+			$phone.val('');
+		}
+	});
+</script>
+<script type="text/javascript" src="js/email.js"></script>
+</body>
+</html>
